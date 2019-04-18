@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailsComponent } from './hero-details/hero-details.component';
+import { Tab } from './tab-model';
+import { TabsComponent } from './tabs/tabs.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ngapp-test';
+  @ViewChild(TabsComponent) tabsComponent;
+
+  title = 'My Tour of Heroes';
+  public selected = 1;
+
+  items: Tab[] = [{
+    label: 'Component1',
+    component: HeroesComponent
+  }, {
+    label: 'Component2',
+      component: HeroesComponent
+  }
+  ];
+
+
+  addTab(): void {
+    this.items.push({ label: 'Added', component: HeroesComponent});
+  }
+
+
+  onAddTab() {
+    this.tabsComponent.openTab('New Person', HeroesComponent, {}, true);
+  }
+
 }
