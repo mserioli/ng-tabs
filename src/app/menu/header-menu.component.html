@@ -7,11 +7,15 @@
       </a>
       <div class="dropdown-menu">
         <div class="dropdown-item">
-          <a href="#" >Link 1</a>
-          <a href="#" ><fa-icon [icon]="['fas', 'external-link-alt']"></fa-icon></a>
+          <a href="#" (click)="open('HeroesComponent')" >Hero</a>
+          <a href="#" (click)="openNewTab('HeroesComponent')"><fa-icon [icon]="['fas', 'external-link-alt']"></fa-icon></a>
         </div>
-        <a class="dropdown-item" href="#">Link 2</a>
-        <a class="dropdown-item" href="#">Link 3</a>
+        <div class="dropdown-item">
+          <a href="#" (click)="open('EnemiesComponent')">Enemy</a>
+          <a href="#" (click)="openNewTab('EnemiesComponent')">
+            <fa-icon [icon]="['fas', 'external-link-alt']"></fa-icon>
+          </a>
+        </div>
 
       </div>
     </li>

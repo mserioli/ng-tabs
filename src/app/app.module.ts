@@ -14,6 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { HomeComponent } from './home/home.component';
+import { EnemiesComponent } from './enemies/enemies.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './home/home.component';
     TabsComponent,
     DynamicTabsDirective,
     HeaderMenuComponent,
-    HomeComponent
+    HomeComponent,
+    EnemiesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import { HomeComponent } from './home/home.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [HeroesComponent, HeroDetailsComponent, TabComponent]
+  entryComponents: [HeroesComponent, HeroDetailsComponent, TabComponent, EnemiesComponent]
 })
 export class AppModule {
   constructor() {

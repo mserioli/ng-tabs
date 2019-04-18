@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs">
-  <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active" class="nav-item">
+  <!--<li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active" class="nav-item">
     <a href="#" class="nav-link" (click)="openNewTab()">+</a>
-  </li>
+  </li> -->
   <!-- dynamic tabs -->
   <li *ngFor="let tab of dynamicTabs" (click)="selectTab(tab)" [class.active]="tab.active" class="nav-item">
     <a href="#" class="nav-link">{{tab.title}} <span class="tab-close" *ngIf="tab.isCloseable" (click)="closeTab(tab)">x</span></a>

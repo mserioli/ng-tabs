@@ -21,7 +21,7 @@ export class TabsComponent implements AfterContentInit {
   */
   // @ViewChild('container', {read: ViewContainerRef}) dynamicTabPlaceholder;
 
-  constructor(private _componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   // contentChildren are set
   ngAfterContentInit() {
@@ -34,13 +34,13 @@ export class TabsComponent implements AfterContentInit {
     }
   }
 
-  openNewTab(){
-    this.openTab('New Person', HeroesComponent, {}, true);
+  openNewTab() {
+    this.openTab('New Tab', HeroesComponent, {}, true);
   }
 
   openTab(title: string, template, data, isCloseable = false) {
     // get a component factory for our TabComponent
-    const componentFactory = this._componentFactoryResolver.resolveComponentFactory(
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
       TabComponent
     );
 
@@ -70,8 +70,8 @@ export class TabsComponent implements AfterContentInit {
 
   selectTab(tab: TabComponent) {
     // deactivate all tabs
-    this.tabs.toArray().forEach(tab => (tab.active = false));
-    this.dynamicTabs.forEach(tab => (tab.active = false));
+    this.tabs.toArray().forEach(tabEl => (tabEl.active = false));
+    this.dynamicTabs.forEach(tabEl => (tabEl.active = false));
 
     // activate the tab the user has clicked on.
     tab.active = true;
@@ -84,7 +84,7 @@ export class TabsComponent implements AfterContentInit {
         this.dynamicTabs.splice(i, 1);
 
         // destroy our dynamically created component again
-        let viewContainerRef = this.dynamicTabPlaceholder.viewContainer;
+        const viewContainerRef = this.dynamicTabPlaceholder.viewContainer;
         // let viewContainerRef = this.dynamicTabPlaceholder;
         viewContainerRef.remove(i);
 
@@ -100,6 +100,16 @@ export class TabsComponent implements AfterContentInit {
     if (activeTabs.length > 0) {
       // close the 1st active tab (should only be one at a time)
       this.closeTab(activeTabs[0]);
+    }
+  }
+
+  navigateCurrentTab(title: string, template) {
+    const activeTabs = this.dynamicTabs.filter(tab => tab.active);
+    if (activeTabs.length > 0) {
+      activeTabs[0].title = title;
+      activeTabs[0].template = template;
+    } else {
+      this.openTab(title, template, {}, true);
     }
   }
 }
