@@ -14,7 +14,6 @@ export class TabsComponent implements AfterContentInit {
   @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
 
   @ViewChild(DynamicTabsDirective) dynamicTabPlaceholder: DynamicTabsDirective;
-
   /*
     Alternative approach of using an anchor directive
     would be to simply get hold of a template variable

@@ -9,8 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tabs/tab.component';
 import { DynamicTabsDirective } from './tabs/dynamic-tabs.directive';
-
-
+import { HeaderMenuComponent } from './menu/header-menu.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,16 +22,24 @@ import { DynamicTabsDirective } from './tabs/dynamic-tabs.directive';
     HeroDetailsComponent,
     TabComponent,
     TabsComponent,
-    DynamicTabsDirective
+    DynamicTabsDirective,
+    HeaderMenuComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     LayoutModule,
     BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [HeroesComponent, HeroDetailsComponent, TabComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    // Add an icon to the library for convenient access in other components
+    library.add(faExternalLinkAlt);
+  }
+}

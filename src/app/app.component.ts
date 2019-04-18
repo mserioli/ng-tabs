@@ -29,9 +29,4 @@ export class AppComponent {
     this.items.push({ label: 'Added', component: HeroesComponent});
   }
 
-
-  onAddTab() {
-    this.tabsComponent.openTab('New Person', HeroesComponent, {}, true);
-  }
-
 }
