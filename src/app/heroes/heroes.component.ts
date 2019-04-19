@@ -15,11 +15,16 @@ export class HeroesComponent implements OnInit {
   selectedHero: Hero;
 
   ngOnInit() {
-    this.heroes = this.hs.getHeroes();
+    this.getHeroes();
   }
 
   onClick(hero: Hero) {
     this.selectedHero = hero;
+  }
+
+  getHeroes() {
+    this.hs.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
   }
 
 }

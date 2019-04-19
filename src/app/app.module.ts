@@ -15,6 +15,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { HomeComponent } from './home/home.component';
 import { EnemiesComponent } from './enemies/enemies.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EnemiesComponent } from './enemies/enemies.component';
     DynamicTabsDirective,
     HeaderMenuComponent,
     HomeComponent,
-    EnemiesComponent
+    EnemiesComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
