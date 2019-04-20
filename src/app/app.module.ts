@@ -16,6 +16,9 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { HomeComponent } from './home/home.component';
 import { EnemiesComponent } from './enemies/enemies.component';
 import { MessagesComponent } from './messages/messages.component';
+import { ComponentComunicationModule } from './component-comunication/component-comunication.module';
+import { AppRouterModule } from './app-router.module';
+import { MultitabComponent } from './multitab/multitab.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +31,20 @@ import { MessagesComponent } from './messages/messages.component';
     HeaderMenuComponent,
     HomeComponent,
     EnemiesComponent,
-    MessagesComponent
+    MessagesComponent,
+    MultitabComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     LayoutModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ComponentComunicationModule,
+    AppRouterModule
+  ],
+  exports: [
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
